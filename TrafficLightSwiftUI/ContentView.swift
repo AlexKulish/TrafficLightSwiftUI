@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var currentColor = CurrentColor.noColor
+    @State var buttonTitle = "START"
     
     var body: some View {
         ZStack {
@@ -21,9 +22,12 @@ struct ContentView: View {
                 CircleColor(color: .yellow, opacity: currentColor == .yellow ? 1 : 0.3)
                 CircleColor(color: .green, opacity: currentColor == .green ? 1 : 0.3)
                 Spacer()
-                ButtonConfig {
+                ButtonConfig(title: buttonTitle, action: {
+                    if buttonTitle == "START" {
+                        buttonTitle = "NEXT"
+                    }
                     nextColor()
-                }
+                })
                     .padding(.bottom, 50)
             }
         }

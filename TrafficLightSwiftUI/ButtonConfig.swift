@@ -9,16 +9,15 @@ import SwiftUI
 
 struct ButtonConfig: View {
     
-    @State var buttontext = "START"
+    let title: String
     let action: () -> Void
     
     var body: some View {
         Button {
-            buttontext = "NEXT"
             action()
             
         } label: {
-            Text(buttontext)
+            Text(title)
                 .fontWeight(.bold)
                 .frame(width: 150, height: 50)
                 .font(.title)
@@ -40,7 +39,7 @@ struct ButtonConfig: View {
 
 struct ButtonConfig_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonConfig(action: {} )
+        ButtonConfig(title: "START", action: {})
     }
 }
 
